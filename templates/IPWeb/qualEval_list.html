@@ -1,0 +1,65 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+<div class="container my-3">
+    <table class="table">
+        <thead>
+        <tr class="table-dark">
+            <th>번호</th>
+            <th>접수ID</th>
+            <th>카테고리</th>
+            <th>진행단계</th>
+            <th>파트명</th>
+            <th>검토자</th>
+            <th>사무소명</th>
+            <th>대리인</th>
+            <th>검토일</th>
+            <th>검토내용</th>
+            <th>작성일시</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if qualEval_list %}
+        {% for qualEval in qualEval_list %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>
+                <a href="{% url 'IPWeb:detail' qualEval.id %}">{{ qualEval.ID_num }}</a>
+            </td>
+            <td>
+                {{ qualEval.category }}</a>
+            </td>
+            <td>
+                {{ qualEval.stage }}</a>
+            </td>
+            <td>
+                {{ qualEval.part_name }}</a>
+            </td>
+            <td>
+                {{ qualEval.reviewer }}</a>
+            </td>
+            <td>
+                {{ qualEval.office_name }}</a>
+            </td>
+            <td>
+                {{ qualEval.office_attorney }}</a>
+            </td>
+            <td>
+                {{ qualEval.review_date }}</a>
+            </td>
+            <td>
+                {{ qualEval.comment }}</a>
+            </td>
+            <td>{{ qualEval.create_date }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">평가 내용이 없습니다.</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+    <body>
+    <script type="text/javascript" href="{% static 'universe_chart.js' %}"></script>
+    </body>
+</div>

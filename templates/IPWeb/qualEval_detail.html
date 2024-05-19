@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+<div class="container my-3">
+    <!-- 접수ID -->
+    <h2 class="border-bottom py-2">{{ qualEval.ID_num }}</h2>
+    <div class="card my-3">
+        <div class="card-body">
+            <div class="card-text" style="white-space: pre-line;">{{ qualEval.reviewer }}</div>
+            <div class="d-flex justify-content-end">
+                <div class="badge bg-light text-dark p-2">
+                    {{ qualEval.create_date }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
